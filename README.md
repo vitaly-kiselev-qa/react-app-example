@@ -1,5 +1,5 @@
 # React App Example
-The app is created using the tutorial
+The app is created using the tutorial<br>
 https://learn-reactjs.ru/tutorial
 
 # Start Application
