@@ -131,7 +131,9 @@ class Game extends React.Component {
           </div>
         </div>
         <div className="info">
-          <a href='https://learn-reactjs.ru/tutorial' target='_blank' rel='noreferrer'>learn-reactjs.ru/tutorial</a>
+          <a href='https://github.com/vitaly-kiselev-qa/react-app-example' target='_blank' rel='noreferrer'>
+            GitHub
+          </a>
         </div>
       </div>
     );
