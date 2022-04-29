@@ -1,4 +1,6 @@
 # React App Example
-The app is created using the tutorial https://learn-reactjs.ru/tutorial
+The app is created using the tutorial
+https://learn-reactjs.ru/tutorial
 
-To start the application run `npm start` or `start_app.bat` in the **ReactApp** folder.
+# Start Application
+Run `npm start` or `start_app.bat` in the **ReactApp** folder.
