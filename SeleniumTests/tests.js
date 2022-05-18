@@ -1,4 +1,5 @@
 const webdriver = require('selenium-webdriver');
+const chrome = require("selenium-webdriver/chrome");
 const expect = require("chai").expect;
 
 class SquarePosition {
@@ -94,7 +95,13 @@ describe('Tic-tac-toe', function () {
   let page;
 
   before(function () {
-    driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
+    const options = new chrome.Options();
+    options.excludeSwitches('--enable-logging');
+
+    driver = new webdriver.Builder()
+      .withCapabilities(webdriver.Capabilities.chrome())
+      .setChromeOptions(options)
+      .build();
   });
 
   beforeEach(async function () {
