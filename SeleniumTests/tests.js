@@ -81,7 +81,7 @@ class GamePage {
   }
 }
 
-describe('Tic-tac-toe', () => {
+describe('Tic-tac-toe', function () {
   const NONE = '';
   const X = 'X';
   const O = 'O';
@@ -93,17 +93,17 @@ describe('Tic-tac-toe', () => {
   let driver;
   let page;
 
-  before(() => {
+  before(function () {
     driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
   });
 
-  beforeEach(async () => {
+  beforeEach(async function () {
     await driver.get('http://localhost:3000/');
     page = new GamePage(driver);
   });
 
 
-  it('Next player', async () => {
+  it('Next player', async function () {
     expect(await page.getStatus()).to.equal(NEXT_PLAYER_X);
 
     await page.clickSquare(new SquarePosition(1, 1));
@@ -119,7 +119,7 @@ describe('Tic-tac-toe', () => {
     expect(await page.getStatus()).to.equal(NEXT_PLAYER_O);
   });
 
-  it('X player wins', async () => {
+  it('X player wins', async function () {
     await page.clickSquares([
       new SquarePosition(1, 1), new SquarePosition(2, 1), new SquarePosition(2, 2),
       new SquarePosition(3, 1), new SquarePosition(3, 3)]
@@ -128,7 +128,7 @@ describe('Tic-tac-toe', () => {
     expect(await page.getStatus()).to.equal('Winner: ' + X);
   });
 
-  it('O player wins', async () => {
+  it('O player wins', async function () {
     await page.clickSquares([
       new SquarePosition(3, 3), new SquarePosition(2, 1), new SquarePosition(2, 2),
       new SquarePosition(1, 1), new SquarePosition(2, 3), new SquarePosition(3, 1)
@@ -137,7 +137,7 @@ describe('Tic-tac-toe', () => {
     expect(await page.getStatus()).to.equal('Winner: ' + O);
   });
 
-  it('Draw', async () => {
+  it('Draw', async function () {
     await page.clickSquares([
       new SquarePosition(1, 1), new SquarePosition(2, 1), new SquarePosition(3, 2),
       new SquarePosition(2, 2), new SquarePosition(2, 3), new SquarePosition(1, 2),
@@ -147,7 +147,7 @@ describe('Tic-tac-toe', () => {
     expect(await page.getStatus()).to.equal('Draw');
   });
 
-  it('Go to game start', async () => {
+  it('Go to game start', async function () {
     await page.clickSquares([
       new SquarePosition(1, 1), new SquarePosition(3, 3), new SquarePosition(3, 2)
     ]);
@@ -169,7 +169,7 @@ describe('Tic-tac-toe', () => {
     ]);
   });
 
-  it('Go to move', async () => {
+  it('Go to move', async function () {
     await page.clickSquares([
       new SquarePosition(1, 1), new SquarePosition(2, 1), new SquarePosition(3, 1),
       new SquarePosition(1, 3), new SquarePosition(2, 3), new SquarePosition(3, 3)
@@ -192,7 +192,7 @@ describe('Tic-tac-toe', () => {
     ]);
   });
 
-  after(async () => {
+  after(async function () {
     await driver.quit();
   });
 });
