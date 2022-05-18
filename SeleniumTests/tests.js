@@ -1,6 +1,6 @@
 const webdriver = require('selenium-webdriver');
-const chrome = require("selenium-webdriver/chrome");
-const expect = require("chai").expect;
+const chrome = require('selenium-webdriver/chrome');
+const expect = require('chai').expect;
 
 class SquarePosition {
   constructor(positionX, positionY) {
@@ -27,7 +27,8 @@ class GamePage {
   }
 
   Square(posiotion) {
-    return webdriver.By.css(`.board-row:nth-child(${posiotion.y}) .square:nth-child(${posiotion.x})`);
+    return webdriver.By.css(`.board-row:nth-child(${posiotion.y}) ` +
+      `.square:nth-child(${posiotion.x})`);
   }
 
   get GoToStart() {
@@ -105,10 +106,9 @@ describe('Tic-tac-toe', function () {
   });
 
   beforeEach(async function () {
-    await driver.get('http://localhost:3000/');
+    await driver.get('http://react-app.it.etosoft.ru/');
     page = new GamePage(driver);
   });
-
 
   it('Next player', async function () {
     expect(await page.getStatus()).to.equal(NEXT_PLAYER_X);
